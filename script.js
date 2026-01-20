@@ -172,6 +172,34 @@ addEventListener("keydown", (event) => {
   if (opposite[direction] !== newDir) {
     direction = newDir;
   }
+});let touchStartX = 0;
+let touchStartY = 0;
+
+document.addEventListener("touchstart", (e) => {
+  touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+document.addEventListener("touchend", (e) => {
+  const touchEndX = e.changedTouches[0].clientX;
+  const touchEndY = e.changedTouches[0].clientY;
+
+  const dx = touchEndX - touchStartX;
+  const dy = touchEndY - touchStartY;
+
+  let newDir;
+
+  if (Math.abs(dx) > Math.abs(dy)) {
+    newDir = dx > 0 ? "right" : "left";
+  } else {
+    newDir = dy > 0 ? "down" : "up";
+  }
+
+  // 🚨 SAME opposite-direction protection
+  if (opposite[direction] !== newDir) {
+    direction = newDir;
+  }
 });
+
 
 
