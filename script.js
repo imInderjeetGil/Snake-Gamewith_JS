@@ -16,8 +16,8 @@ const highScoreElement = document.querySelector("#high-score");
 const currentScoreElement = document.querySelector("#score");
 const timeElement = document.querySelector("#time");
 
-const blockHeight = 40;
-const blockWidth = 40;
+const blockHeight = 30;
+const blockWidth = 30;
 
 let highScore = localStorage.getItem("highScore") || 0;
 let score = 0
